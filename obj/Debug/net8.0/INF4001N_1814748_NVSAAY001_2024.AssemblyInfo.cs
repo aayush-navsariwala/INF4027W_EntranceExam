@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("INF4001N_1814748_NVSAAY001_2024")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f819938533ee00f3e1c2c1442dbd9c8a8334fcf4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c9a87c1fb33588aa8f010457a48fe48057e0d8a")]
 [assembly: System.Reflection.AssemblyProductAttribute("INF4001N_1814748_NVSAAY001_2024")]
 [assembly: System.Reflection.AssemblyTitleAttribute("INF4001N_1814748_NVSAAY001_2024")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
