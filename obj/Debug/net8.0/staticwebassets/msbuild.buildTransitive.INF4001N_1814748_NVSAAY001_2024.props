@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\INF4001N_1814748_NVSAAY001_2024.props" />
+</Project>
