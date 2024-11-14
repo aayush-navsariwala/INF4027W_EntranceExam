@@ -1,3 +1,6 @@
+using INF4001N_1814748_NVSAAY001_2024.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace INF4001N_1814748_NVSAAY001_2024
 {
     public class Program
@@ -8,6 +11,9 @@ namespace INF4001N_1814748_NVSAAY001_2024
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

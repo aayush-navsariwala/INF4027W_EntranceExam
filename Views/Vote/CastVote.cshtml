@@ -1,0 +1,34 @@
+﻿@model INF4001N_1814748_NVSAAY001_2024.ViewModels.CastVoteViewModel
+
+@{
+    ViewBag.Title = "Cast Your Vote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cast Your Vote</h2>
+
+<div class="container mt-4">
+    <h4>Select a candidate to cast your vote:</h4>
+    <hr />
+
+    @using (Html.BeginForm("CastVote", "Vote", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ElectionId)
+
+        <div class="form-group">
+            @foreach (var candidate in Model.Candidates)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="SelectedCandidateId" value="@candidate.CandidateID" id="candidate-@candidate.CandidateID" />
+                    <label class="form-check-label" for="candidate-@candidate.CandidateID">
+                        @candidate.Name (@candidate.Party)
+                    </label>
+                </div>
+            }
+            @Html.ValidationMessageFor(m => m.SelectedCandidateId, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit Vote</button>
+    }
+</div>
