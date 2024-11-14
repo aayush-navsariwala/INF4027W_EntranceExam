@@ -26,5 +26,24 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Additional registration logic (e.g., saving the user) goes here
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
