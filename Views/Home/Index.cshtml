@@ -1,8 +1,40 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Welcome to the Election Platform";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Online Election Platform</h1>
+    <p class="lead">An inclusive, accessible, and transparent way to participate in the democratic process.</p>
+    <hr class="my-4">
+    <p>Sign up, log in, and participate in the current election by casting your vote or viewing real-time results.</p>
+
+    <div class="mt-4">
+        <a class="btn btn-secondary btn-lg" href="@Url.Action("Login", "Account")" role="button">Login</a>
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Register", "Account")" role="button">Register</a>
+        <a class="btn btn-info btn-lg" href="@Url.Action("Index", "Results")" role="button">View Results</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2>Why Choose the Online Election Platform?</h2>
+    <p>
+        Our platform empowers voters by breaking down geographical barriers, making it easier for everyone to engage in the democratic process.
+        With secure, real-time voting and instant results, the Online Election Platform provides a modern, trustworthy, and eco-friendly solution for elections.
+    </p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h3>Secure</h3>
+            <p>We use advanced security measures to ensure that your vote is safe and protected from unauthorized access.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Real-Time Results</h3>
+            <p>Track the progress of the election with live polling data updated in real-time for transparency.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Accessible</h3>
+            <p>Our platform is accessible from any device, allowing you to participate from the comfort of your home.</p>
+        </div>
+    </div>
 </div>

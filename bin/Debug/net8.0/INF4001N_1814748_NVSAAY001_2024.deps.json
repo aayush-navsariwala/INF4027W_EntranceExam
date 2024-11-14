@@ -14,7 +14,8 @@
           "Microsoft.Data.SqlClient": "5.2.2",
           "Microsoft.Owin": "4.2.2",
           "Newtonsoft.Json": "13.0.3",
-          "System.Net.Http": "4.3.4"
+          "System.Net.Http": "4.3.4",
+          "bootstrap": "5.3.3"
         },
         "runtime": {
           "INF4001N_1814748_NVSAAY001_2024.dll": {}
@@ -66,6 +67,7 @@
           }
         }
       },
+      "bootstrap/5.3.3": {},
       "EntityFramework/6.5.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -942,6 +944,13 @@
       "sha512": "sha512-Sf4BoE6Q3jTgFkgBkx7qztYOFELBCo+wQgpYDwal/qJ1unBH73ywPztIJKXBXORRzAeNijsuxhk94h0TIMvfYg==",
       "path": "azure.identity/1.11.4",
       "hashPath": "azure.identity.1.11.4.nupkg.sha512"
+    },
+    "bootstrap/5.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iQohLXwneNPDyW4x24mKQ90qGwT5WTtNl3KybL0koTluJPjKYxFCU/NTLHsJiWR2n7VmnwcpAgr8TR42KNmPOg==",
+      "path": "bootstrap/5.3.3",
+      "hashPath": "bootstrap.5.3.3.nupkg.sha512"
     },
     "EntityFramework/6.5.1": {
       "type": "package",

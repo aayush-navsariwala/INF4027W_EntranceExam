@@ -28,7 +28,7 @@ namespace INF4001N_1814748_NVSAAY001_2024
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Account}/{action=Login}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
