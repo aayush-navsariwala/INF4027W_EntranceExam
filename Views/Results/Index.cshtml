@@ -1,0 +1,56 @@
+﻿@model List<INF4001N_1814748_NVSAAY001_2024.ViewModels.ResultsViewModel>
+
+@{
+    ViewBag.Title = "Election Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // Prepare data as a serialized JSON object
+    var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+}
+
+<h2>Election Results</h2>
+
+<div class="container">
+    @foreach (var election in Model)
+    {
+        <div class="mb-5">
+            <h3>@election.ElectionTitle</h3>
+            <canvas id="chart-@election.ElectionTitle.Replace(" ", "-")" width="400" height="200"></canvas>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Pass serialized data from the server to JavaScript
+        const electionsData = @Html.Raw(@serializedData);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            electionsData.forEach(election => {
+                const ctx = document.getElementById(`chart-${election.ElectionTitle.replace(/\s+/g, "-")}`).getContext("2d");
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: election.CandidateNames,
+                        datasets: [{
+                            label: 'Votes',
+                            data: election.VoteCounts,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

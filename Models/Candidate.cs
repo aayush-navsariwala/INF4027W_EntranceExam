@@ -9,6 +9,7 @@ namespace INF4001N_1814748_NVSAAY001_2024.Models
         public string Name { get; set; }
         public string Party { get; set; }
         public int ElectionId { get; set; } 
-        public int VoteCount { get; set; } = 0; 
+        public int VoteCount { get; set; } = 0;
+        public Election Election { get; set; }
     }
 }

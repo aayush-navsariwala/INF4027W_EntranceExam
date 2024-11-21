@@ -10,6 +10,9 @@ namespace INF4001N_1814748_NVSAAY001_2024.Models
         public string Title { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string Status { get; set; } = "Active"; 
+        public string Status { get; set; } = "Active";
+
+        // Navigation property for related candidates
+        public ICollection<Candidate> Candidates { get; set; }
     }
 }

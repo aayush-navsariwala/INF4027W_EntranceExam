@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\entrance project\\inf4001n_1814748_nvsaay001_2024\\views\\results\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:views\\results\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\entrance project\\inf4001n_1814748_nvsaay001_2024\\controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:controllers\\resultscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\entrance project\\inf4001n_1814748_nvsaay001_2024\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\entrance project\\inf4001n_1814748_nvsaay001_2024\\models\\candidate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:models\\candidate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\entrance project\\inf4001n_1814748_nvsaay001_2024\\models\\election.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:models\\election.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\entrance project\\inf4001n_1814748_nvsaay001_2024\\viewmodels\\resultsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:viewmodels\\resultsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,6 +99,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Views\\Results\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Results\\Index.cshtml",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Views\\Results\\Index.cshtml",
+              "RelativeToolTip": "Views\\Results\\Index.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAwAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T20:05:41.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAuwBIAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T20:02:51.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Candidate.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Models\\Candidate.cs",
+              "RelativeDocumentMoniker": "Models\\Candidate.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Models\\Candidate.cs",
+              "RelativeToolTip": "Models\\Candidate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T20:02:20.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Election.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Models\\Election.cs",
+              "RelativeDocumentMoniker": "Models\\Election.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Models\\Election.cs",
+              "RelativeToolTip": "Models\\Election.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T20:00:51.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResultsController.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Controllers\\ResultsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ResultsController.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Controllers\\ResultsController.cs",
+              "RelativeToolTip": "Controllers\\ResultsController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAIA3wBkAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T19:58:42.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ResultsViewModel.cs",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\ViewModels\\ResultsViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\ResultsViewModel.cs",
@@ -91,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "UserRegistrationViewModel.cs",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\ViewModels\\UserRegistrationViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\UserRegistrationViewModel.cs",
@@ -104,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
@@ -117,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -130,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "ConfirmVote.cshtml",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Views\\Vote\\ConfirmVote.cshtml",
               "RelativeDocumentMoniker": "Views\\Vote\\ConfirmVote.cshtml",
@@ -143,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
@@ -156,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "CastVote.cshtml",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Views\\Vote\\CastVote.cshtml",
               "RelativeDocumentMoniker": "Views\\Vote\\CastVote.cshtml",
@@ -169,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "VoteController.cs",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\Controllers\\VoteController.cs",
               "RelativeDocumentMoniker": "Controllers\\VoteController.cs",
@@ -182,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "CastVoteViewModel.cs",
               "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\ViewModels\\CastVoteViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\CastVoteViewModel.cs",

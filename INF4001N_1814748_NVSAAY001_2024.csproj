@@ -27,9 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Election\" />
     <Folder Include="Views\Candidate\" />
-    <Folder Include="Views\Results\" />
   </ItemGroup>
 
 </Project>
