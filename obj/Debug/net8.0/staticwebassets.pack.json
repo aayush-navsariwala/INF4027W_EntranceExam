@@ -189,6 +189,66 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\alice_johnson.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\alice_johnson.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\bob_lee.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\bob_lee.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\charlie_kim.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\charlie_kim.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\diana_clark.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\diana_clark.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\edward_king.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\edward_king.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\fiona_white.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\fiona_white.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\george_miller.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\george_miller.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\hannah_lee.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\hannah_lee.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\ian_black.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\ian_black.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\jessica_grey.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\jessica_grey.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\karen_white.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\karen_white.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\luke_adams.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\luke_adams.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\mia_collins.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\mia_collins.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\nathan_brooks.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\nathan_brooks.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\candidates\\olivia_green.jpg",
+      "PackagePath": "staticwebassets\\images\\candidates\\olivia_green.jpg"
+    },
+    {
       "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
