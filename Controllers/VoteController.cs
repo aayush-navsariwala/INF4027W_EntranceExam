@@ -11,9 +11,9 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
     public class VoteController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        public VoteController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public VoteController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -26,8 +26,8 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
             {
                 ElectionId = electionId,
                 Candidates = await _context.Candidates
-                                .Where(c => c.ElectionID == electionId)
-                                .ToListAsync()
+                               .Where(c => c.ElectionId == electionId) 
+                               .ToListAsync()
             };
 
             return View(viewModel);
@@ -39,7 +39,7 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
             if (!ModelState.IsValid)
             {
                 model.Candidates = await _context.Candidates
-                                        .Where(c => c.ElectionID == model.ElectionId)
+                                        .Where(c => c.ElectionId == model.ElectionId) 
                                         .ToListAsync();
                 return View(model);
             }
@@ -48,13 +48,13 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
 
             // Check if the user has already voted in this election
             var existingVote = await _context.Votes
-                                  .FirstOrDefaultAsync(v => v.UserID == userId && v.ElectionID == model.ElectionId);
+                                  .FirstOrDefaultAsync(v => v.UserId == Guid.Parse(userId) && v.ElectionId == model.ElectionId); 
 
             if (existingVote != null)
             {
                 ModelState.AddModelError(string.Empty, "You have already voted in this election.");
                 model.Candidates = await _context.Candidates
-                                        .Where(c => c.ElectionID == model.ElectionId)
+                                        .Where(c => c.ElectionId == model.ElectionId) 
                                         .ToListAsync();
                 return View(model);
             }
@@ -62,9 +62,9 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
             // Cast the vote
             var vote = new Vote
             {
-                UserID = userId,
-                ElectionID = model.ElectionId,
-                CandidateID = model.SelectedCandidateId,
+                UserId = Guid.Parse(userId), 
+                ElectionId = model.ElectionId, 
+                CandidateId = model.SelectedCandidateId, 
                 VoteTimestamp = DateTime.Now
             };
 

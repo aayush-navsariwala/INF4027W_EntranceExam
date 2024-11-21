@@ -11,11 +11,13 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPasswordHasher<ApplicationUser> _passwordHasher;
+        private readonly UserManager<User> _userManager;
+        private readonly IPasswordHasher<User> _passwordHasher;
 
-        public AccountController(ApplicationDbContext context, IPasswordHasher<ApplicationUser> passwordHasher)
+        public AccountController(ApplicationDbContext context, UserManager<User> userManager, IPasswordHasher<User> passwordHasher)
         {
             _context = context;
+            _userManager = userManager;
             _passwordHasher = passwordHasher;
         }
 
@@ -53,10 +55,18 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
             if (ModelState.IsValid)
             {
                 // Check for duplicate IDNumber
-                var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.IDNumber == model.IDNumber);
-                if (existingUser != null)
+                var existingUserByIdNumber = await _userManager.Users.FirstOrDefaultAsync(u => u.IDNumber == model.IDNumber);
+                if (existingUserByIdNumber != null)
                 {
                     ModelState.AddModelError("IDNumber", "This ID Number is already registered.");
+                    return View(model);
+                }
+
+                // Check for duplicate Email
+                var existingUserByEmail = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (existingUserByEmail != null)
+                {
+                    ModelState.AddModelError("Email", "This email address is already registered.");
                     return View(model);
                 }
 
@@ -66,15 +76,25 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                     FullName = model.FullName,
                     IDNumber = model.IDNumber,
                     Email = model.Email,
+                    UserName = model.Email,
                     Province = model.Province,
-                    PasswordHash = _passwordHasher.HashPassword(new ApplicationUser(), model.Password), // Hash the password
                     CreatedAt = DateTime.Now
                 };
 
-                _context.Users.Add(newUser);
-                await _context.SaveChangesAsync();
+                var result = await _userManager.CreateAsync(newUser, model.Password);
 
-                return RedirectToAction("Login");
+                if (result.Succeeded)
+                {
+                    // Assign the default role
+                    await _userManager.AddToRoleAsync(newUser, "Voter");
+
+                    return RedirectToAction("Login");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
             }
 
             return View(model);

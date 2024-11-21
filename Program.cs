@@ -17,9 +17,9 @@ namespace INF4001N_1814748_NVSAAY001_2024
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddScoped<IPasswordHasher<ApplicationUser>, PasswordHasher<ApplicationUser>>();
+            builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            builder.Services.AddIdentity<User, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequiredLength = 6;
@@ -36,8 +36,14 @@ namespace INF4001N_1814748_NVSAAY001_2024
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+            }
+
+            // Seed Roles and Admin User
+            using (var scope = app.Services.CreateScope())
+            {
+                var serviceProvider = scope.ServiceProvider;
+                SeedData(serviceProvider).GetAwaiter().GetResult(); 
             }
 
             app.UseHttpsRedirection();
@@ -53,6 +59,43 @@ namespace INF4001N_1814748_NVSAAY001_2024
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+        }
+
+        private static async Task SeedData(IServiceProvider serviceProvider)
+        {
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+
+            // Create Roles
+            var roles = new[] { "Admin", "Voter" };
+            foreach (var role in roles)
+            {
+                if (!await roleManager.RoleExistsAsync(role))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            // Create Admin User
+            var adminEmail = "admin@example.com";
+            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            if (adminUser == null)
+            {
+                adminUser = new User
+                {
+                    FullName = "Admin User",
+                    Email = adminEmail,
+                    UserName = adminEmail,
+                    IDNumber = "1234567890123", // Provide a valid ID number
+                    Province = "Default Province",
+                    CreatedAt = DateTime.Now
+                };
+                var adminResult = await userManager.CreateAsync(adminUser, "Admin@12345");
+                if (adminResult.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(adminUser, "Admin");
+                }
+            }
         }
     }
 }

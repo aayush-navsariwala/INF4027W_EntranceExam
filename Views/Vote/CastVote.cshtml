@@ -20,8 +20,8 @@
             @foreach (var candidate in Model.Candidates)
             {
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="SelectedCandidateId" value="@candidate.CandidateID" id="candidate-@candidate.CandidateID" />
-                    <label class="form-check-label" for="candidate-@candidate.CandidateID">
+                    <input class="form-check-input" type="radio" name="SelectedCandidateId" value="@candidate.CandidateId" id="candidate-@candidate.CandidateId" />
+                    <label class="form-check-label" for="candidate-@candidate.CandidateId">
                         @candidate.Name (@candidate.Party)
                     </label>
                 </div>
