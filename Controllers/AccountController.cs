@@ -24,7 +24,7 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                 return View(model);
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("CastVote", "Vote");
         }
 
         [HttpGet]

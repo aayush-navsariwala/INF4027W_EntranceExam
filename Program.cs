@@ -1,5 +1,7 @@
-using INF4001N_1814748_NVSAAY001_2024.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using INF4001N_1814748_NVSAAY001_2024.Data;
+using INF4001N_1814748_NVSAAY001_2024.Models;
 
 namespace INF4001N_1814748_NVSAAY001_2024
 {
@@ -14,6 +16,17 @@ namespace INF4001N_1814748_NVSAAY001_2024
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
 
             var app = builder.Build();
 
@@ -30,6 +43,7 @@ namespace INF4001N_1814748_NVSAAY001_2024
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
