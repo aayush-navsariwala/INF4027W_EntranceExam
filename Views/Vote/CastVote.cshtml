@@ -8,25 +8,36 @@
 <h2>Cast Your Vote</h2>
 
 <div class="container mt-4">
-    <h4>Select a candidate to cast your vote:</h4>
-    <hr />
-
     @using (Html.BeginForm("CastVote", "Vote", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.ElectionId)
 
+        <h4>2024 National Elections</h4>
+        <hr />
         <div class="form-group">
-            @foreach (var candidate in Model.Candidates)
+            @foreach (var candidate in Model.NationalElectionCandidates)
             {
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="SelectedCandidateId" value="@candidate.CandidateId" id="candidate-@candidate.CandidateId" />
-                    <label class="form-check-label" for="candidate-@candidate.CandidateId">
+                    <input class="form-check-input" type="radio" name="SelectedNationalCandidateId" value="@candidate.CandidateId" id="national-candidate-@candidate.CandidateId" />
+                    <label class="form-check-label" for="national-candidate-@candidate.CandidateId">
                         @candidate.Name (@candidate.Party)
                     </label>
                 </div>
             }
-            @Html.ValidationMessageFor(m => m.SelectedCandidateId, "", new { @class = "text-danger" })
+        </div>
+
+        <h4>2024 Provincial Elections</h4>
+        <hr />
+        <div class="form-group">
+            @foreach (var candidate in Model.ProvincialElectionCandidates)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="SelectedProvincialCandidateId" value="@candidate.CandidateId" id="provincial-candidate-@candidate.CandidateId" />
+                    <label class="form-check-label" for="provincial-candidate-@candidate.CandidateId">
+                        @candidate.Name (@candidate.Party)
+                    </label>
+                </div>
+            }
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">Submit Vote</button>

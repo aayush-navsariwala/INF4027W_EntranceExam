@@ -13,11 +13,13 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IPasswordHasher<User> _passwordHasher;
+        private readonly SignInManager<User> _signInManager;
 
-        public AccountController(ApplicationDbContext context, UserManager<User> userManager, IPasswordHasher<User> passwordHasher)
+        public AccountController(ApplicationDbContext context, UserManager<User> userManager, SignInManager<User> signInManager, IPasswordHasher<User> passwordHasher)
         {
             _context = context;
             _userManager = userManager;
+            _signInManager = signInManager;
             _passwordHasher = passwordHasher;
         }
 
@@ -27,23 +29,47 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
+                ViewData["ReturnUrl"] = returnUrl;
                 return View(model);
             }
 
-            return RedirectToAction("CastVote", "Vote");
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                TempData["Message"] = "Login successful.";
+                return RedirectToAction("CastVote", "Vote");
+            }
+
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            ViewData["ReturnUrl"] = returnUrl;
+            return View(model);
         }
 
-        [HttpGet]
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+            [HttpGet]
         public IActionResult Register()
         {
             return View();
@@ -85,9 +111,8 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
 
                 if (result.Succeeded)
                 {
-                    // Assign the default role
                     await _userManager.AddToRoleAsync(newUser, "Voter");
-
+                    TempData["Message"] = "Registration successful. You can now log in.";
                     return RedirectToAction("Login");
                 }
 

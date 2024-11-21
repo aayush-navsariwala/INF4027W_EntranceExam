@@ -18,37 +18,40 @@
                 {
                     @Html.AntiForgeryToken()
 
-                    <div class="form-group">
+                         <!-- Add ReturnUrl hidden field -->
+                        <input type="hidden" name="ReturnUrl" value="@ViewData["ReturnUrl"]" />
+
+                        <div class="form-group">
                         @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
+                            <div class="col-md-8">
                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email address" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-4 col-md-8">
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-md-offset-4 col-md-8">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword", "Account", null, new { @class = "btn btn-link" })
+                        <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword", "Account", null, new { @class = "btn btn-link" })
+                            </div>
+                        </div>
                 }
             </div>
         </div>

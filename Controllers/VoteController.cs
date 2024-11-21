@@ -5,71 +5,102 @@ using INF4001N_1814748_NVSAAY001_2024.Models;
 using INF4001N_1814748_NVSAAY001_2024.ViewModels;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace INF4001N_1814748_NVSAAY001_2024.Controllers
 {
     public class VoteController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<User> _userManager;
 
-        public VoteController(ApplicationDbContext context, UserManager<User> userManager)
+        public VoteController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
+        [Authorize]
         [HttpGet]
-        public async Task<IActionResult> CastVote(int electionId)
+        public async Task<IActionResult> CastVote()
         {
             var viewModel = new CastVoteViewModel
             {
-                ElectionId = electionId,
-                Candidates = await _context.Candidates
-                               .Where(c => c.ElectionId == electionId) 
-                               .ToListAsync()
+                NationalElectionCandidates = await _context.Candidates
+        .Where(c => c.ElectionId == 1) // National Election
+        .ToListAsync(),
+                ProvincialElectionCandidates = await _context.Candidates
+        .Where(c => c.ElectionId == 2) // Provincial Election
+        .ToListAsync()
             };
 
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CastVote(CastVoteViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                model.Candidates = await _context.Candidates
-                                        .Where(c => c.ElectionId == model.ElectionId) 
-                                        .ToListAsync();
+                model.NationalElectionCandidates = await _context.Candidates
+                    .Where(c => c.ElectionId == 1)
+                    .ToListAsync();
+                model.ProvincialElectionCandidates = await _context.Candidates
+                    .Where(c => c.ElectionId == 2)
+                    .ToListAsync();
                 return View(model);
             }
 
-            var userId = _userManager.GetUserId(User); // Get the logged-in user's ID
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Retrieve current user ID
 
-            // Check if the user has already voted in this election
-            var existingVote = await _context.Votes
-                                  .FirstOrDefaultAsync(v => v.UserId == Guid.Parse(userId) && v.ElectionId == model.ElectionId); 
-
-            if (existingVote != null)
+            if (userId == null)
             {
-                ModelState.AddModelError(string.Empty, "You have already voted in this election.");
-                model.Candidates = await _context.Candidates
-                                        .Where(c => c.ElectionId == model.ElectionId) 
-                                        .ToListAsync();
-                return View(model);
+                return Unauthorized(); // Ensure the user is logged in
             }
 
-            // Cast the vote
-            var vote = new Vote
+            // Validate and save National Election vote
+            if (model.SelectedNationalCandidateId.HasValue)
             {
-                UserId = Guid.Parse(userId), 
-                ElectionId = model.ElectionId, 
-                CandidateId = model.SelectedCandidateId, 
-                VoteTimestamp = DateTime.Now
-            };
+                var existingNationalVote = await _context.Votes
+                    .FirstOrDefaultAsync(v => v.UserId == Guid.Parse(userId) && v.ElectionId == 1);
 
-            _context.Votes.Add(vote);
-            await _context.SaveChangesAsync();
+                if (existingNationalVote == null)
+                {
+                    var nationalVote = new Vote
+                    {
+                        UserId = Guid.Parse(userId),
+                        ElectionId = 1,
+                        CandidateId = model.SelectedNationalCandidateId.Value,
+                        VoteTimestamp = DateTime.Now
+                    };
+                    _context.Votes.Add(nationalVote);
+                    var candidate = await _context.Candidates.FindAsync(model.SelectedNationalCandidateId.Value);
+                    candidate.VoteCount++;
+                }
+            }
+
+            // Validate and save Provincial Election vote
+            if (model.SelectedProvincialCandidateId.HasValue)
+            {
+                var existingProvincialVote = await _context.Votes
+                    .FirstOrDefaultAsync(v => v.UserId == Guid.Parse(userId) && v.ElectionId == 2);
+
+                if (existingProvincialVote == null)
+                {
+                    var provincialVote = new Vote
+                    {
+                        UserId = Guid.Parse(userId),
+                        ElectionId = 2,
+                        CandidateId = model.SelectedProvincialCandidateId.Value,
+                        VoteTimestamp = DateTime.Now
+                    };
+                    _context.Votes.Add(provincialVote);
+                    var candidate = await _context.Candidates.FindAsync(model.SelectedProvincialCandidateId.Value);
+                    candidate.VoteCount++;
+                }
+            }
+
+            await _context.SaveChangesAsync(); // Save changes to the database
 
             return RedirectToAction("ConfirmVote");
         }

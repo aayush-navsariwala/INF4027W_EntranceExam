@@ -86,7 +86,7 @@ namespace INF4001N_1814748_NVSAAY001_2024
                     FullName = "Admin User",
                     Email = adminEmail,
                     UserName = adminEmail,
-                    IDNumber = "1234567890123", // Provide a valid ID number
+                    IDNumber = "1234567890123", 
                     Province = "Default Province",
                     CreatedAt = DateTime.Now
                 };

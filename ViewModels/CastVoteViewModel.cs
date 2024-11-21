@@ -6,13 +6,10 @@ namespace INF4001N_1814748_NVSAAY001_2024.ViewModels
 {
     public class CastVoteViewModel
     {
-        [Required]
-        public int ElectionId { get; set; }
+        public List<Candidate> NationalElectionCandidates { get; set; } = new List<Candidate>();
+        public List<Candidate> ProvincialElectionCandidates { get; set; } = new List<Candidate>();
 
-        [Required(ErrorMessage = "Please select a candidate.")]
-        [Display(Name = "Select Candidate")]
-        public int SelectedCandidateId { get; set; }
-
-        public List<Candidate> Candidates { get; set; }
+        public int? SelectedNationalCandidateId { get; set; }
+        public int? SelectedProvincialCandidateId { get; set; }
     }
 }
