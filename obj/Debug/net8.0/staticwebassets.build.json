@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mtdHtIndDfVeE/ds0uXFI4KOimN6SiqkOYVDpmj+Lk0=",
+  "Hash": "eshoUhZA4m9oXBWbLSKXLDInnTLIOYtXRdA6/gUFtF0=",
   "Source": "INF4001N_1814748_NVSAAY001_2024",
   "BasePath": "_content/INF4001N_1814748_NVSAAY001_2024",
   "Mode": "Default",
@@ -1212,6 +1212,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\candidates\\olivia_green.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\footer\\sa_banner.jpg",
+      "SourceId": "INF4001N_1814748_NVSAAY001_2024",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\",
+      "BasePath": "_content/INF4001N_1814748_NVSAAY001_2024",
+      "RelativePath": "images/footer/sa_banner.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\footer\\sa_banner.jpg"
     },
     {
       "Identity": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\js\\site.js",

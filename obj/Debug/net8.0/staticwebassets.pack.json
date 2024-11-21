@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets\\images\\candidates\\olivia_green.jpg"
     },
     {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\footer\\sa_banner.jpg",
+      "PackagePath": "staticwebassets\\images\\footer\\sa_banner.jpg"
+    },
+    {
       "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -27,7 +27,8 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                 {
                     ElectionTitle = e.Title,
                     CandidateNames = e.Candidates.Select(c => c.Name).ToList(),
-                    VoteCounts = e.Candidates.Select(c => c.VoteCount).ToList()
+                    VoteCounts = e.Candidates.Select(c => c.VoteCount).ToList(),
+                    CandidatePhotos = e.Candidates.Select(c => c.PhotoUrl).ToList()
                 })
                 .FirstOrDefaultAsync();
 
@@ -38,7 +39,8 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                 {
                     ElectionTitle = e.Title,
                     CandidateNames = e.Candidates.Select(c => c.Name).ToList(),
-                    VoteCounts = e.Candidates.Select(c => c.VoteCount).ToList()
+                    VoteCounts = e.Candidates.Select(c => c.VoteCount).ToList(),
+                    CandidatePhotos = e.Candidates.Select(c => c.PhotoUrl).ToList()
                 })
                 .FirstOrDefaultAsync();
 

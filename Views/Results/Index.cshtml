@@ -8,13 +8,13 @@
     var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
 }
 
-<h2>Election Results</h2>
+<h2 class="text-center">Election Results</h2>
 
 <div class="container">
     @foreach (var election in Model)
     {
         <div class="mb-5">
-            <h3>@election.ElectionTitle</h3>
+            <h3 class="text-center">@election.ElectionTitle</h3>
             <canvas id="chart-@election.ElectionTitle.Replace(" ", "-")" width="400" height="200"></canvas>
         </div>
     }
@@ -23,12 +23,24 @@
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Pass serialized data from the server to JavaScript
+        // Pass serialized data to JavaScript
         const electionsData = @Html.Raw(@serializedData);
 
         document.addEventListener("DOMContentLoaded", function () {
             electionsData.forEach(election => {
+                // Get the canvas context
                 const ctx = document.getElementById(`chart-${election.ElectionTitle.replace(/\s+/g, "-")}`).getContext("2d");
+
+                // Prepare the image URLs for candidate photos
+                const imageUrls = election.CandidatePhotos;
+
+                // Load all images
+                const images = [];
+                imageUrls.forEach((url, index) => {
+                    const img = new Image();
+                    img.src = url;
+                    images.push(img);
+                });
 
                 new Chart(ctx, {
                     type: 'bar',
@@ -43,12 +55,35 @@
                         }]
                     },
                     options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                enabled: true
+                            }
+                        },
                         scales: {
                             y: {
                                 beginAtZero: true
                             }
                         }
-                    }
+                    },
+                    plugins: [{
+                        id: 'customLabels',
+                        afterDraw: (chart) => {
+                            const ctx = chart.ctx;
+                            const xAxis = chart.scales.x;
+
+                            // Draw images above each bar
+                            images.forEach((img, index) => {
+                                const x = xAxis.getPixelForValue(index) - 20; // Adjust for image center
+                                const y = chart.scales.y.top - 50; // Position above the chart
+                                ctx.drawImage(img, x, y, 40, 40); // Draw image (size 40x40)
+                            });
+                        }
+                    }]
                 });
             });
         });
