@@ -1,4 +1,4 @@
-﻿@model INF4001N_1814748_NVSAAY001_2024.ViewModels.RegisterViewModel
+﻿@model INF4001N_1814748_NVSAAY001_2024.ViewModels.UserRegistrationViewModel
 
 @{
     ViewBag.Title = "Register";
@@ -18,6 +18,25 @@
                 {
                     @Html.AntiForgeryToken()
 
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FullName, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Full Name" })
+                            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- ID Number -->
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.IDNumber, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.IDNumber, new { @class = "form-control", placeholder = "ID Number" })
+                            @Html.ValidationMessageFor(m => m.IDNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!-- Email -->
                     <div class="form-group">
                         @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
@@ -26,6 +45,7 @@
                         </div>
                     </div>
 
+                    <!-- Password -->
                     <div class="form-group">
                         @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
@@ -34,6 +54,7 @@
                         </div>
                     </div>
 
+                    <!-- Confirm Password -->
                     <div class="form-group">
                         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
@@ -42,6 +63,7 @@
                         </div>
                     </div>
 
+                    <!-- Province -->
                     <div class="form-group">
                         @Html.LabelFor(m => m.Province, new { @class = "col-md-4 control-label" })
                         <div class="col-md-8">
@@ -62,6 +84,7 @@
                         </div>
                     </div>
 
+                    <!-- Submit Button -->
                     <div class="form-group">
                         <div class="col-md-offset-4 col-md-8">
                             <button type="submit" class="btn btn-primary">Register</button>
@@ -79,4 +102,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 }
-

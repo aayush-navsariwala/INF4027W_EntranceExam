@@ -5,21 +5,10 @@ namespace INF4001N_1814748_NVSAAY001_2024.Models
 {
     public class Candidate
     {
-        [Key]
-        public int CandidateID { get; set; }
-
-        [Required]
-        [Display(Name = "Candidate Name")]
+        public int CandidateId { get; set; } 
         public string Name { get; set; }
-
         public string Party { get; set; }
-
-        [Required]
-        [ForeignKey("Election")]
-        public int ElectionID { get; set; }
-
-        public virtual Election Election { get; set; }
-
+        public int ElectionId { get; set; } 
         public int VoteCount { get; set; } = 0; 
     }
 }
