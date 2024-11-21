@@ -5,41 +5,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cast Your Vote</h2>
+<h2 class="text-center mt-4">Cast Your Vote</h2>
 
 <div class="container mt-4">
-    @using (Html.BeginForm("CastVote", "Vote", FormMethod.Post))
+    @using (Html.BeginForm("CastVote", "Vote", FormMethod.Post, new { @class = "vote-form" }))
     {
         @Html.AntiForgeryToken()
 
-        <h4>2024 National Elections</h4>
-        <hr />
-        <div class="form-group">
+        <h3>2024 National Elections</h3>
+        <div class="row">
             @foreach (var candidate in Model.NationalElectionCandidates)
             {
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="SelectedNationalCandidateId" value="@candidate.CandidateId" id="national-candidate-@candidate.CandidateId" />
-                    <label class="form-check-label" for="national-candidate-@candidate.CandidateId">
-                        @candidate.Name (@candidate.Party)
-                    </label>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="@candidate.PhotoUrl" class="card-img-top" alt="@candidate.Name's photo">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@candidate.Name</h5>
+                            <p class="card-text"><strong>Party:</strong> @candidate.Party</p>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#manifestoModal-@candidate.CandidateId">
+                                View Manifesto
+                            </button>
+                            <button type="submit" name="SelectedNationalCandidateId" value="@candidate.CandidateId" class="btn btn-primary btn-sm">
+                                Vote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manifesto Modal -->
+                <div class="modal fade" id="manifestoModal-@candidate.CandidateId" tabindex="-1" aria-labelledby="manifestoModalLabel-@candidate.CandidateId" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="manifestoModalLabel-@candidate.CandidateId">Manifesto of @candidate.Name</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                @candidate.Manifesto
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
         </div>
 
-        <h4>2024 Provincial Elections</h4>
-        <hr />
-        <div class="form-group">
+        <h3>2024 Provincial Elections</h3>
+        <div class="row">
             @foreach (var candidate in Model.ProvincialElectionCandidates)
             {
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="SelectedProvincialCandidateId" value="@candidate.CandidateId" id="provincial-candidate-@candidate.CandidateId" />
-                    <label class="form-check-label" for="provincial-candidate-@candidate.CandidateId">
-                        @candidate.Name (@candidate.Party)
-                    </label>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="@candidate.PhotoUrl" class="card-img-top" alt="@candidate.Name's photo">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@candidate.Name</h5>
+                            <p class="card-text"><strong>Party:</strong> @candidate.Party</p>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#manifestoModal-@candidate.CandidateId">
+                                View Manifesto
+                            </button>
+                            <button type="submit" name="SelectedProvincialCandidateId" value="@candidate.CandidateId" class="btn btn-primary btn-sm">
+                                Vote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manifesto Modal -->
+                <div class="modal fade" id="manifestoModal-@candidate.CandidateId" tabindex="-1" aria-labelledby="manifestoModalLabel-@candidate.CandidateId" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="manifestoModalLabel-@candidate.CandidateId">Manifesto of @candidate.Name</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                @candidate.Manifesto
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }
         </div>
-
-        <button type="submit" class="btn btn-primary mt-3">Submit Vote</button>
     }
 </div>
