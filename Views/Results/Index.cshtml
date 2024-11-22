@@ -8,6 +8,10 @@
     var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
 }
 
+<a href="@Url.Action("Index", "Home")" class="back-button btn btn-primary">
+    &larr; Back to Home
+</a>
+
 <h2 class="text-center results-title">Election Results</h2>
 
 <div class="container mt-5">
@@ -57,7 +61,7 @@
 
                 const imageUrls = election.CandidatePhotos;
                 const images = [];
-                imageUrls.forEach((url, index) => {
+                imageUrls.forEach((url) => {
                     const img = new Image();
                     img.src = url;
                     images.push(img);
@@ -78,11 +82,44 @@
                     options: {
                         responsive: true,
                         plugins: {
-                            legend: {
-                                display: false
-                            },
                             tooltip: {
-                                enabled: true
+                                enabled: false,
+                                external: function (context) {
+                                    const tooltipModel = context.tooltip;
+                                    const tooltipEl = document.getElementById('chartjs-tooltip');
+
+                                    if (!tooltipEl) {
+                                        const newTooltipEl = document.createElement('div');
+                                        newTooltipEl.id = 'chartjs-tooltip';
+                                        newTooltipEl.innerHTML = `
+                                                    <div class="tooltip-content">
+                                                        <img id="tooltip-img" src="" alt="Candidate Photo" />
+                                                        <p id="tooltip-name"></p>
+                                                        <p id="tooltip-votes"></p>
+                                                    </div>`;
+                                        document.body.appendChild(newTooltipEl);
+                                    }
+
+                                    const tooltip = document.getElementById('chartjs-tooltip');
+                                    if (tooltipModel.opacity === 0) {
+                                        tooltip.style.opacity = 0;
+                                        return;
+                                    }
+
+                                    const index = tooltipModel.dataPoints[0].dataIndex;
+                                    const candidateName = election.CandidateNames[index];
+                                    const voteCount = election.VoteCounts[index];
+                                    const candidatePhoto = imageUrls[index];
+
+                                    document.getElementById('tooltip-img').src = candidatePhoto;
+                                    document.getElementById('tooltip-name').innerText = candidateName;
+                                    document.getElementById('tooltip-votes').innerText = `Votes: ${voteCount}`;
+
+                                    tooltip.style.opacity = 1;
+                                    tooltip.style.position = 'absolute';
+                                    tooltip.style.left = context.chart.canvas.offsetLeft + tooltipModel.caretX + 'px';
+                                    tooltip.style.top = context.chart.canvas.offsetTop + tooltipModel.caretY + 'px';
+                                }
                             }
                         },
                         scales: {
@@ -90,20 +127,7 @@
                                 beginAtZero: true
                             }
                         }
-                    },
-                    plugins: [{
-                        id: 'customLabels',
-                        afterDraw: (chart) => {
-                            const ctx = chart.ctx;
-                            const xAxis = chart.scales.x;
-
-                            images.forEach((img, index) => {
-                                const x = xAxis.getPixelForValue(index) - 20;
-                                const y = chart.scales.y.top - 50;
-                                ctx.drawImage(img, x, y, 40, 40);
-                            });
-                        }
-                    }]
+                    }
                 });
             });
         });
@@ -111,10 +135,60 @@
 }
 
 <style>
+    #chartjs-tooltip {
+        position: absolute;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+        #chartjs-tooltip img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #chartjs-tooltip p {
+            margin: 5px 0;
+            text-align: center;
+            font-size: 14px;
+            color: #212529;
+        }
+
     body {
         background-color: #f8f9fa;
         color: #212529;
     }
+
+    /* Back Button Styling */
+    .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #0047ab; /* South African blue */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .back-button:hover {
+            background-color: #003580; /* Darker blue */
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
 
     .results-title {
         font-weight: bold;

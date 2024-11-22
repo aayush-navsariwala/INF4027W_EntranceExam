@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<a href="@Url.Action("Index", "Home")" class="back-button btn btn-primary">
+    &larr; Back to Home
+</a>
+
 <h2 class="text-center register-title">Register</h2>
 
 <div class="row justify-content-center mt-5">
@@ -89,6 +93,27 @@
         background-color: #f8f9fa;
         color: #212529;
     }
+
+    /* Back Button Styling */
+    .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #0047ab; /* South African blue */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+    }
+
+        .back-button:hover {
+            background-color: #003580; /* Darker blue */
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
 
     .register-title {
         color: #0047ab; /* South African blue */
