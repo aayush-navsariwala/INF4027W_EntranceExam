@@ -20,6 +20,8 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            const int totalPopulation = 100;
+
             var nationalElection = await _context.Elections
                 .Include(e => e.Candidates)
                 .Where(e => e.Title == "2024 National Elections")
@@ -28,7 +30,10 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                     ElectionTitle = e.Title,
                     CandidateNames = e.Candidates.Select(c => c.Name).ToList(),
                     VoteCounts = e.Candidates.Select(c => c.VoteCount).ToList(),
-                    CandidatePhotos = e.Candidates.Select(c => c.PhotoUrl).ToList()
+                    CandidatePhotos = e.Candidates.Select(c => c.PhotoUrl).ToList(),
+                    TotalVotes = e.Candidates.Sum(c => c.VoteCount), 
+                    PopulationPercentageVoted = e.Candidates.Sum(c => c.VoteCount) / (double)totalPopulation * 100, 
+                    CandidateVotePercentages = e.Candidates.Select(c => c.VoteCount / (double)e.Candidates.Sum(x => x.VoteCount) * 100).ToList() 
                 })
                 .FirstOrDefaultAsync();
 
@@ -40,7 +45,10 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                     ElectionTitle = e.Title,
                     CandidateNames = e.Candidates.Select(c => c.Name).ToList(),
                     VoteCounts = e.Candidates.Select(c => c.VoteCount).ToList(),
-                    CandidatePhotos = e.Candidates.Select(c => c.PhotoUrl).ToList()
+                    CandidatePhotos = e.Candidates.Select(c => c.PhotoUrl).ToList(),
+                    TotalVotes = e.Candidates.Sum(c => c.VoteCount),
+                    PopulationPercentageVoted = e.Candidates.Sum(c => c.VoteCount) / (double)totalPopulation * 100,
+                    CandidateVotePercentages = e.Candidates.Select(c => c.VoteCount / (double)e.Candidates.Sum(x => x.VoteCount) * 100).ToList()
                 })
                 .FirstOrDefaultAsync();
 

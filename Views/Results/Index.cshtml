@@ -15,6 +15,30 @@
     {
         <div class="mb-5">
             <h3 class="text-center">@election.ElectionTitle</h3>
+
+            <p class="text-center">
+                <strong>Total Votes Cast:</strong> @election.TotalVotes<br>
+                <strong>Percentage of Population Voted:</strong> @election.PopulationPercentageVoted.ToString("0.00")%<br>
+            </p>
+
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Percentage of Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < election.CandidateNames.Count; i++)
+                    {
+                        <tr>
+                            <td>@election.CandidateNames[i]</td>
+                            <td>@election.CandidateVotePercentages[i].ToString("0.00")%</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
             <canvas id="chart-@election.ElectionTitle.Replace(" ", "-")" width="400" height="200"></canvas>
         </div>
     }
