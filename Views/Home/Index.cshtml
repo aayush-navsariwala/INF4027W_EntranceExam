@@ -3,6 +3,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (TempData["VoteSuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center" role="alert">
+        @TempData["VoteSuccessMessage"]
+    </div>
+}
+@if (TempData["AlreadyVotedMessage"] != null)
+{
+    <div class="alert alert-warning text-center" role="alert">
+        @TempData["AlreadyVotedMessage"]
+    </div>
+}
+
 <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to the Online Election Platform</h1>
     <p class="lead">An inclusive, accessible, and transparent way to participate in the democratic process.</p>
@@ -38,3 +51,17 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Check if TempData["AlreadyVotedMessage"] contains a value
+        @if (TempData["AlreadyVotedMessage"] != null)
+        {
+            <text>
+                document.addEventListener("DOMContentLoaded", function () {
+                    alert("@TempData["AlreadyVotedMessage"]");
+                });
+            </text>
+        }
+    </script>
+}

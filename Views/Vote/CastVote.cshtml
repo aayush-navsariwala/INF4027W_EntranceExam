@@ -29,9 +29,12 @@
                             <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#manifestoModal-@candidate.CandidateId">
                                 View Manifesto
                             </button>
-                            <button type="submit" name="SelectedNationalCandidateId" value="@candidate.CandidateId" class="btn btn-primary btn-sm">
+                            <button type="button" class="btn btn-primary btn-sm vote-button"
+                                    data-candidate-id="@candidate.CandidateId"
+                                    data-election-id="1">
                                 Vote
                             </button>
+
                         </div>
                     </div>
                 </div>
@@ -66,9 +69,12 @@
                             <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#manifestoModal-@candidate.CandidateId">
                                 View Manifesto
                             </button>
-                            <button type="submit" name="SelectedProvincialCandidateId" value="@candidate.CandidateId" class="btn btn-primary btn-sm">
+                            <button type="button" class="btn btn-primary btn-sm vote-button"
+                                    data-candidate-id="@candidate.CandidateId"
+                                    data-election-id="2">
                                 Vote
                             </button>
+
                         </div>
                     </div>
                 </div>
@@ -96,30 +102,46 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const voteButtons = document.querySelectorAll(".vote-button");
-            const confirmationModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
-            const successModal = new bootstrap.Modal(document.getElementById("successModal"));
-            let selectedCandidateId = null;
-            let selectedElectionType = null;
 
             voteButtons.forEach(button => {
                 button.addEventListener("click", function () {
-                    selectedCandidateId = this.getAttribute("data-candidate-id");
-                    selectedElectionType = this.getAttribute("data-election-type");
+                    const candidateId = this.getAttribute("data-candidate-id");
+                    const electionId = this.getAttribute("data-election-id");
 
-                    const candidateName = this.parentNode.querySelector(".card-title").innerText;
-
-                    document.getElementById("candidateName").innerText = candidateName;
-                    document.getElementById("electionType").innerText = selectedElectionType;
-
-                    confirmationModal.show();
+                    const confirmVote = confirm("Are you sure you want to cast your vote for this candidate?");
+                    if (confirmVote) {
+                        fetch('/Vote/CastVoteAjax', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': $('input[name="__RequestVerificationToken"]').val() // CSRF Token for security
+                            },
+                            body: JSON.stringify({
+                                candidateId: candidateId,
+                                electionId: electionId
+                            })
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    return response.json();
+                                } else {
+                                    throw new Error("Failed to cast vote.");
+                                }
+                            })
+                            .then(data => {
+                                if (data.success) {
+                                    alert(data.message);
+                                    location.reload(); // Reload the page after a successful vote
+                                } else {
+                                    alert(data.message || "An error occurred.");
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Error during vote submission:", error);
+                                alert("An error occurred while casting your vote. Please try again.");
+                            });
+                    }
                 });
-            });
-
-            document.getElementById("confirmVoteButton").addEventListener("click", function () {
-                // Logic to submit the vote can go here (e.g., sending an AJAX request)
-
-                confirmationModal.hide();
-                successModal.show();
             });
         });
     </script>

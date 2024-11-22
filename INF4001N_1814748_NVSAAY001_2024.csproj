@@ -26,8 +26,4 @@
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Candidate\" />
-  </ItemGroup>
-
 </Project>
