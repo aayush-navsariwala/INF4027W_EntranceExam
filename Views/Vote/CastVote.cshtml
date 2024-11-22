@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="container mt-4 text-center">
+    <img src="~/images/random/iec_banner.jpg" alt="Vote Banner" class="img-fluid mb-4" style="max-width: 25%; height: auto;" />
+</div>
+
 <h2 class="text-center mt-4">Cast Your Vote</h2>
 
 <div class="container mt-4">
@@ -88,22 +92,113 @@
     }
 </div>
 
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const voteButtons = document.querySelectorAll(".vote-button");
+            const confirmationModal = new bootstrap.Modal(document.getElementById("confirmationModal"));
+            const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+            let selectedCandidateId = null;
+            let selectedElectionType = null;
+
+            voteButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    selectedCandidateId = this.getAttribute("data-candidate-id");
+                    selectedElectionType = this.getAttribute("data-election-type");
+
+                    const candidateName = this.parentNode.querySelector(".card-title").innerText;
+
+                    document.getElementById("candidateName").innerText = candidateName;
+                    document.getElementById("electionType").innerText = selectedElectionType;
+
+                    confirmationModal.show();
+                });
+            });
+
+            document.getElementById("confirmVoteButton").addEventListener("click", function () {
+                // Logic to submit the vote can go here (e.g., sending an AJAX request)
+
+                confirmationModal.hide();
+                successModal.show();
+            });
+        });
+    </script>
+}
+
 <style>
+
+    body {
+        background-color: #f8f9fa;
+        color: #212529;
+    }
+
+    h2 {
+        font-weight: bold;
+        color: #0047ab; /* South African blue */
+    }
+
+    .section-title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #ffb400; /* South African gold */
+    }
+
     .candidate-img {
-        max-width: 150px;
-        max-height: 150px;
+        max-width: 120px;
+        max-height: 120px;
         object-fit: cover;
         margin: 0 auto;
+        border: 2px solid #28a745; /* South African green */
+        border-radius: 50%;
     }
 
     .card {
-        border: 1px solid #ddd;
-        border-radius: 5px;
+        border: 2px solid #212529;
+        border-radius: 10px;
         overflow: hidden;
+        transition: transform 0.3s ease-in-out;
     }
 
+        .card:hover {
+            transform: scale(1.05);
+            border-color: #ffb400; /* South African gold */
+        }
+
     .card-body {
+        background-color: #ffffff;
         padding: 15px;
+    }
+
+    .btn-primary {
+        background-color: #0047ab; /* South African blue */
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #002f6c; /* Darker blue */
+        }
+
+    .btn-info {
+        background-color: #28a745; /* South African green */
+        border: none;
+    }
+
+        .btn-info:hover {
+            background-color: #1e6b33; /* Darker green */
+        }
+
+    .modal-content {
+        background-color: #f8f9fa;
+        color: #212529;
+    }
+
+    .modal-header {
+        border-bottom: 2px solid #0047ab; /* South African blue */
+    }
+
+    .modal-title {
+        color: #ffb400; /* South African gold */
     }
 
     h3 {

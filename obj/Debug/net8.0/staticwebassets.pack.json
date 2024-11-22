@@ -253,6 +253,14 @@
       "PackagePath": "staticwebassets\\images\\footer\\sa_banner.jpg"
     },
     {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\random\\iec_banner.jpg",
+      "PackagePath": "staticwebassets\\images\\random\\iec_banner.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\images\\random\\vote_banner.jpg",
+      "PackagePath": "staticwebassets\\images\\random\\vote_banner.jpg"
+    },
+    {
       "Id": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
