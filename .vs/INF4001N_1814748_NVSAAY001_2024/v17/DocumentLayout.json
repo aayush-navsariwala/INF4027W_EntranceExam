@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\final\\inf4027w_entranceexam\\services\\abstractemailvalidationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:services\\abstractemailvalidationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\final\\inf4027w_entranceexam\\viewmodels\\castvoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:viewmodels\\castvoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\final\\inf4027w_entranceexam\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\final\\inf4027w_entranceexam\\viewmodels\\pollresultviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:viewmodels\\pollresultviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\final\\inf4027w_entranceexam\\viewmodels\\resultsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:viewmodels\\resultsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|c:\\users\\aayus\\desktop\\aayush\\uct\\final\\inf4027w_entranceexam\\viewmodels\\userregistrationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D3513E6-EFA5-4C68-959E-FB59403318C9}|INF4001N_1814748_NVSAAY001_2024.csproj|solutionrelative:viewmodels\\userregistrationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,15 +62,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AbstractEmailValidationService.cs",
-              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\Services\\AbstractEmailValidationService.cs",
-              "RelativeDocumentMoniker": "Services\\AbstractEmailValidationService.cs",
-              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\Services\\AbstractEmailValidationService.cs",
-              "RelativeToolTip": "Services\\AbstractEmailValidationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABJAAAA",
+              "DocumentIndex": 4,
+              "Title": "UserRegistrationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\UserRegistrationViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\UserRegistrationViewModel.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\UserRegistrationViewModel.cs",
+              "RelativeToolTip": "ViewModels\\UserRegistrationViewModel.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAA/wCAAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T17:25:58.16Z",
+              "WhenOpened": "2024-11-22T17:33:40.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ResultsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\ResultsViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ResultsViewModel.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\ResultsViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ResultsViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T17:33:36.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PollResultViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\PollResultViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PollResultViewModel.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\PollResultViewModel.cs",
+              "RelativeToolTip": "ViewModels\\PollResultViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T17:33:33.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T17:33:31.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CastVoteViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\CastVoteViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\CastVoteViewModel.cs",
+              "ToolTip": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\ViewModels\\CastVoteViewModel.cs",
+              "RelativeToolTip": "ViewModels\\CastVoteViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T17:33:27.708Z",
               "EditorCaption": ""
             }
           ]
