@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JoWiMK4NN0icARfHbJ9QIEKg7L+Ifobz7M3EjeDTS9yfisemT38WYMvExZ/EbnvSqG6EkndkiHZw3eYsUady6A==",
+  "dgSpecHash": "jdooiDUdd8nokzShQ8ko1aMIT1iFnct8vqBSGTj6T04jucaNcs9urqjHhweSxzi+2j8MyvbJjoJ+nLjL9PHnbQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Entrance Project\\INF4001N_1814748_NVSAAY001_2024\\INF4001N_1814748_NVSAAY001_2024.csproj",
+  "projectFilePath": "C:\\Users\\aayus\\Desktop\\Aayush\\UCT\\Final\\INF4027W_EntranceExam\\INF4001N_1814748_NVSAAY001_2024.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aayus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\aayus\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

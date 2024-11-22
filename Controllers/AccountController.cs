@@ -90,12 +90,12 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                 }
 
                 // Validate the email using Abstract API
-                var isEmailValid = await emailValidationService.IsEmailValidAsync(model.Email);
-                if (!isEmailValid)
-                {
-                    ModelState.AddModelError("Email", "The provided email address is invalid.");
-                    return View(model);
-                }
+                //var isEmailValid = await emailValidationService.IsEmailValidAsync(model.Email);
+                //if (!isEmailValid)
+                //{
+                //    ModelState.AddModelError("Email", "The provided email address is invalid.");
+                //    return View(model);
+                //}
 
                 // Check for duplicate Email
                 var existingUserByEmail = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == model.Email);

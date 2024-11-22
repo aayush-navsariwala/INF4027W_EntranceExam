@@ -16,38 +16,38 @@
     </div>
 }
 
-<div class="jumbotron text-center">
-    <h1 class="display-4">Welcome to the Online Election Platform</h1>
+<<div class="jumbotron text-center">
+    <h1 class="display-4 title-text">Welcome to the Online Election Platform</h1>
     <p class="lead">An inclusive, accessible, and transparent way to participate in the democratic process.</p>
-    <hr class="my-4">
+    <hr class="my-4 divider">
     <p>Sign up, log in, and participate in the current election by casting your vote or viewing real-time results.</p>
 
     <div class="mt-4">
-        <a class="btn btn-secondary btn-lg" href="@Url.Action("Login", "Account")" role="button">Login</a>
-        <a class="btn btn-primary btn-lg" href="@Url.Action("Register", "Account")" role="button">Register</a>
-        <a class="btn btn-info btn-lg" href="@Url.Action("Index", "Results")" role="button">View Results</a>
+        <a class="btn btn-secondary btn-lg action-button" href="@Url.Action("Login", "Account")" role="button">Login</a>
+        <a class="btn btn-primary btn-lg action-button" href="@Url.Action("Register", "Account")" role="button">Register</a>
+        <a class="btn btn-info btn-lg action-button" href="@Url.Action("Index", "Results")" role="button">View Results</a>
     </div>
 </div>
 
 <div class="container mt-5">
-    <h2>Why Choose the Online Election Platform?</h2>
-    <p>
+    <h2 class="section-title">Why Choose the Online Election Platform?</h2>
+    <p class="info-text">
         Our platform empowers voters by breaking down geographical barriers, making it easier for everyone to engage in the democratic process.
         With secure, real-time voting and instant results, the Online Election Platform provides a modern, trustworthy, and eco-friendly solution for elections.
     </p>
 
     <div class="row mt-4">
-        <div class="col-md-4">
-            <h3>Secure</h3>
-            <p>We use advanced security measures to ensure that your vote is safe and protected from unauthorized access.</p>
+        <div class="col-md-4 feature-card">
+            <h3 class="feature-title">Secure</h3>
+            <p class="feature-description">We use advanced security measures to ensure that your vote is safe and protected from unauthorized access.</p>
         </div>
-        <div class="col-md-4">
-            <h3>Real-Time Results</h3>
-            <p>Track the progress of the election with live polling data updated in real-time for transparency.</p>
+        <div class="col-md-4 feature-card">
+            <h3 class="feature-title">Real-Time Results</h3>
+            <p class="feature-description">Track the progress of the election with live polling data updated in real-time for transparency.</p>
         </div>
-        <div class="col-md-4">
-            <h3>Accessible</h3>
-            <p>Our platform is accessible from any device, allowing you to participate from the comfort of your home.</p>
+        <div class="col-md-4 feature-card">
+            <h3 class="feature-title">Accessible</h3>
+            <p class="feature-description">Our platform is accessible from any device, allowing you to participate from the comfort of your home.</p>
         </div>
     </div>
 </div>
@@ -65,3 +65,96 @@
         }
     </script>
 }
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #212529;
+    }
+
+    .jumbotron {
+        background: linear-gradient(90deg, #0047ab, #ffb400, #28a745, #ff0000, #000000);
+        color: white;
+        padding: 3rem 1.5rem;
+        border-radius: 10px;
+    }
+
+    .title-text {
+        font-weight: bold;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .divider {
+        border: 2px solid #ffb400;
+        width: 80%;
+        margin: 1.5rem auto;
+    }
+
+    .action-button {
+        margin: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        font-size: 1.25rem;
+    }
+
+    .action-button:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .btn-secondary {
+        background-color: #0047ab; /* South African blue */
+        color: white;
+        border: none;
+    }
+
+    .btn-primary {
+        background-color: #28a745; /* South African green */
+        color: white;
+        border: none;
+    }
+
+    .btn-info {
+        background-color: #ffb400; /* South African gold */
+        color: white;
+        border: none;
+    }
+
+    .section-title {
+        font-weight: bold;
+        color: #0047ab;
+        margin-bottom: 1rem;
+    }
+
+    .info-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        color: #555555;
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 1.5rem;
+        border: 1px solid #dddddd;
+        border-radius: 10px;
+        background-color: white;
+        margin: 1rem 0;
+        transition: box-shadow 0.2s ease-in-out;
+    }
+
+    .feature-card:hover {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-title {
+        color: #0047ab;
+        font-weight: bold;
+    }
+
+    .feature-description {
+        color: #555555;
+        font-size: 1rem;
+    }
+</style>
