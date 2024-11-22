@@ -5,97 +5,148 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Register</h2>
+<h2 class="text-center register-title">Register</h2>
 
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Create Your Account</h3>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card shadow-lg">
+            <div class="card-header text-center" style="background-color: #0047ab; color: white;">
+                <h3 class="mb-0">Create Your Account</h3>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
 
                     <!-- Full Name -->
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.FullName, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Full Name" })
-                            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.FullName, new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Full Name" })
+                        @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
                     </div>
 
                     <!-- ID Number -->
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.IDNumber, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.IDNumber, new { @class = "form-control", placeholder = "ID Number" })
-                            @Html.ValidationMessageFor(m => m.IDNumber, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.IDNumber, new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(m => m.IDNumber, new { @class = "form-control", placeholder = "ID Number" })
+                        @Html.ValidationMessageFor(m => m.IDNumber, "", new { @class = "text-danger" })
                     </div>
 
                     <!-- Email -->
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email address" })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
 
                     <!-- Password -->
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.Password, new { @class = "form-label fw-bold" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password" })
-                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group mb-3">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label fw-bold" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                     </div>
 
                     <!-- Province -->
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Province, new { @class = "col-md-4 control-label" })
-                        <div class="col-md-8">
-                            @Html.DropDownListFor(m => m.Province, new SelectList(new[]
-                                     {
-                        new { Text = "Select Province", Value = "" },
-                        new { Text = "Gauteng", Value = "Gauteng" },
-                        new { Text = "Western Cape", Value = "Western Cape" },
-                        new { Text = "KwaZulu-Natal", Value = "KwaZulu-Natal" },
-                        new { Text = "Eastern Cape", Value = "Eastern Cape" },
-                        new { Text = "Limpopo", Value = "Limpopo" },
-                        new { Text = "Mpumalanga", Value = "Mpumalanga" },
-                        new { Text = "Northern Cape", Value = "Northern Cape" },
-                        new { Text = "North West", Value = "North West" },
-                        new { Text = "Free State", Value = "Free State" }
-                        }, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Province, "", new { @class = "text-danger" })
-                        </div>
+                    <div class="form-group mb-4">
+                        @Html.LabelFor(m => m.Province, new { @class = "form-label fw-bold" })
+                        @Html.DropDownListFor(m => m.Province, new SelectList(new[]
+                                 {
+                    new { Text = "Select Province", Value = "" },
+                    new { Text = "Gauteng", Value = "Gauteng" },
+                    new { Text = "Western Cape", Value = "Western Cape" },
+                    new { Text = "KwaZulu-Natal", Value = "KwaZulu-Natal" },
+                    new { Text = "Eastern Cape", Value = "Eastern Cape" },
+                    new { Text = "Limpopo", Value = "Limpopo" },
+                    new { Text = "Mpumalanga", Value = "Mpumalanga" },
+                    new { Text = "Northern Cape", Value = "Northern Cape" },
+                    new { Text = "North West", Value = "North West" },
+                    new { Text = "Free State", Value = "Free State" }
+                    }, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Province, "", new { @class = "text-danger" })
                     </div>
 
                     <!-- Submit Button -->
-                    <div class="form-group">
-                        <div class="col-md-offset-4 col-md-8">
-                            <button type="submit" class="btn btn-primary">Register</button>
-                            <a href="@Url.Action("Login", "Account")" class="btn btn-link">Already have an account? Login</a>
-                        </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg register-btn">Register</button>
+                        <br />
+                        <a href="@Url.Action("Login", "Account")" class="btn btn-link mt-3">Already have an account? Login</a>
                     </div>
                 }
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #212529;
+    }
+
+    .register-title {
+        color: #0047ab; /* South African blue */
+        font-weight: bold;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        background: white;
+    }
+
+    .card-header {
+        background: linear-gradient(90deg, #0047ab, #ffb400, #28a745, #ff0000, #000000); /* South African flag colors */
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        font-weight: bold;
+    }
+
+    .form-label {
+        color: #0047ab; /* South African blue */
+    }
+
+    .form-control {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0.75rem;
+    }
+
+        .form-control:focus {
+            border-color: #28a745; /* South African green */
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+
+    .register-btn {
+        background-color: #0047ab; /* South African blue */
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .register-btn:hover {
+            background-color: #003580; /* Darker blue */
+            transform: scale(1.05);
+        }
+
+    .btn-link {
+        color: #ffb400; /* South African gold */
+        text-decoration: underline;
+    }
+
+        .btn-link:hover {
+            color: #cc8b00; /* Darker gold */
+        }
+</style>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

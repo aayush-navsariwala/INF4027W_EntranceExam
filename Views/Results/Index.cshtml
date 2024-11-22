@@ -8,21 +8,23 @@
     var serializedData = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
 }
 
-<h2 class="text-center">Election Results</h2>
+<h2 class="text-center results-title">Election Results</h2>
 
-<div class="container">
+<div class="container mt-5">
     @foreach (var election in Model)
     {
         <div class="mb-5">
-            <h3 class="text-center">@election.ElectionTitle</h3>
+            <h3 class="text-center election-title">@election.ElectionTitle</h3>
 
-            <p class="text-center">
-                <strong>Total Votes Cast:</strong> @election.TotalVotes<br>
-                <strong>Percentage of Population Voted:</strong> @election.PopulationPercentageVoted.ToString("0.00")%<br>
-            </p>
+            <div class="stats-container text-center mb-4">
+                <p>
+                    <strong>Total Votes Cast:</strong> @election.TotalVotes<br>
+                    <strong>Percentage of Population Voted:</strong> @election.PopulationPercentageVoted.ToString("0.00")%<br>
+                </p>
+            </div>
 
-            <table class="table table-bordered text-center">
-                <thead>
+            <table class="table table-striped table-hover table-bordered text-center">
+                <thead class="table-header">
                     <tr>
                         <th>Candidate</th>
                         <th>Percentage of Votes</th>
@@ -39,7 +41,7 @@
                 </tbody>
             </table>
 
-            <canvas id="chart-@election.ElectionTitle.Replace(" ", "-")" width="400" height="200"></canvas>
+            <canvas id="chart-@election.ElectionTitle.Replace(" ", "-")" class="results-chart"></canvas>
         </div>
     }
 </div>
@@ -47,18 +49,13 @@
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Pass serialized data to JavaScript
         const electionsData = @Html.Raw(@serializedData);
 
         document.addEventListener("DOMContentLoaded", function () {
             electionsData.forEach(election => {
-                // Get the canvas context
                 const ctx = document.getElementById(`chart-${election.ElectionTitle.replace(/\s+/g, "-")}`).getContext("2d");
 
-                // Prepare the image URLs for candidate photos
                 const imageUrls = election.CandidatePhotos;
-
-                // Load all images
                 const images = [];
                 imageUrls.forEach((url, index) => {
                     const img = new Image();
@@ -100,11 +97,10 @@
                             const ctx = chart.ctx;
                             const xAxis = chart.scales.x;
 
-                            // Draw images above each bar
                             images.forEach((img, index) => {
-                                const x = xAxis.getPixelForValue(index) - 20; // Adjust for image center
-                                const y = chart.scales.y.top - 50; // Position above the chart
-                                ctx.drawImage(img, x, y, 40, 40); // Draw image (size 40x40)
+                                const x = xAxis.getPixelForValue(index) - 20;
+                                const y = chart.scales.y.top - 50;
+                                ctx.drawImage(img, x, y, 40, 40);
                             });
                         }
                     }]
@@ -113,3 +109,58 @@
         });
     </script>
 }
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #212529;
+    }
+
+    .results-title {
+        font-weight: bold;
+        color: #0047ab; /* South African blue */
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .election-title {
+        font-weight: bold;
+        color: #28a745; /* South African green */
+        margin-bottom: 20px;
+    }
+
+    .stats-container {
+        background-color: #fffbea;
+        border: 2px solid #ffb400; /* South African gold */
+        border-radius: 10px;
+        padding: 15px;
+        margin: 20px 0;
+        font-size: 1.1rem;
+    }
+
+    .table {
+        margin-top: 20px;
+        background-color: #ffffff;
+    }
+
+    .table-header {
+        background-color: #0047ab; /* South African blue */
+        color: white;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f8f5;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+        border: 2px solid #ddd;
+    }
+
+    .results-chart {
+        margin: 20px auto;
+        width: 1000px;
+        border: 2px solid #28a745; /* South African green */
+        border-radius: 10px;
+        background-color: white;
+    }
+</style>

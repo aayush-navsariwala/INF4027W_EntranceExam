@@ -24,9 +24,13 @@ namespace INF4001N_1814748_NVSAAY001_2024.Services
             var apiUrl = $"https://emailvalidation.abstractapi.com/v1/?api_key={apiKey}&email={email}";
 
             var response = await _httpClient.GetAsync(apiUrl);
-            if (!response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
-                return false; // Consider API failure as invalid email
+                return true; // Consider API failure as invalid email
+            }
+            else
+            {
+                return false;
             }
 
             var jsonResponse = await response.Content.ReadAsStringAsync();
