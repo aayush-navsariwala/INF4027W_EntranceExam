@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using INF4001N_1814748_NVSAAY001_2024.Data;
 using INF4001N_1814748_NVSAAY001_2024.Models;
+using INF4001N_1814748_NVSAAY001_2024.Services;
 
 namespace INF4001N_1814748_NVSAAY001_2024
 {
@@ -13,6 +14,8 @@ namespace INF4001N_1814748_NVSAAY001_2024
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddHttpClient<IEmailValidationService, AbstractEmailValidationService>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

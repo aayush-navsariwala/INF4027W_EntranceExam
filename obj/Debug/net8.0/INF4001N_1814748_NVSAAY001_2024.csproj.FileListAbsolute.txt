@@ -192,3 +192,9 @@ C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_20
 C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\obj\Debug\net8.0\INF4001N_1814748_NVSAAY001_2024.pdb
 C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\obj\Debug\net8.0\INF4001N_1814748_NVSAAY001_2024.genruntimeconfig.cache
 C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\obj\Debug\net8.0\ref\INF4001N_1814748_NVSAAY001_2024.dll
+C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\aayus\Desktop\Aayush\UCT\Entrance Project\INF4001N_1814748_NVSAAY001_2024\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll

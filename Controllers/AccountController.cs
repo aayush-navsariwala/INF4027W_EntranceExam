@@ -5,6 +5,7 @@ using INF4001N_1814748_NVSAAY001_2024.ViewModels;
 using INF4001N_1814748_NVSAAY001_2024.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using INF4001N_1814748_NVSAAY001_2024.Services;
 
 namespace INF4001N_1814748_NVSAAY001_2024.Controllers
 {
@@ -76,7 +77,7 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(UserRegistrationViewModel model)
+        public async Task<IActionResult> Register(UserRegistrationViewModel model, [FromServices] IEmailValidationService emailValidationService)
         {
             if (ModelState.IsValid)
             {
@@ -85,6 +86,14 @@ namespace INF4001N_1814748_NVSAAY001_2024.Controllers
                 if (existingUserByIdNumber != null)
                 {
                     ModelState.AddModelError("IDNumber", "This ID Number is already registered.");
+                    return View(model);
+                }
+
+                // Validate the email using Abstract API
+                var isEmailValid = await emailValidationService.IsEmailValidAsync(model.Email);
+                if (!isEmailValid)
+                {
+                    ModelState.AddModelError("Email", "The provided email address is invalid.");
                     return View(model);
                 }
 
